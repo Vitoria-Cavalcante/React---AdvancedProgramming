@@ -1,0 +1,419 @@
+/* ===== Cores usadas no site (variáveis CSS) ===== */
+:root {
+  --azul: #3b5bdb;
+  --azul-escuro: #2f4ac0;
+  --azul-claro: #e7ecff;
+  --verde: #2f9e44;
+  --vermelho: #e03131;
+  --cinza-fundo: #f1f3f8;
+  --cinza-borda: #dde1ea;
+  --cinza-texto: #6b7280;
+  --texto: #1f2430;
+}
+
+/* ===== Estilos gerais ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--cinza-fundo);
+  color: var(--texto);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+section {
+  background: white;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+button {
+  padding: 8px 14px;
+  border: 1px solid var(--azul);
+  border-radius: 6px;
+  background: white;
+  color: var(--azul);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--azul-claro);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Cabeçalho ===== */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--azul);
+  color: white;
+}
+
+.cabecalho h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.carrinho {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.carrinho-total {
+  margin-left: 6px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+}
+
+/* ===== Lista de produtos ===== */
+.secao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.secao-topo h2 {
+  margin: 0;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+/* ===== Card de produto ===== */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-desconto {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 3px 8px;
+  background: var(--vermelho);
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.card-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  margin-bottom: 12px;
+  font-size: 56px;
+  background: var(--cinza-fundo);
+  border-radius: 8px;
+}
+
+.card-categoria {
+  margin: 0;
+  color: var(--azul);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-nome {
+  margin: 4px 0 10px;
+  font-size: 16px;
+}
+
+.card-precos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.card-preco-antigo {
+  color: var(--cinza-texto);
+  font-size: 13px;
+}
+
+.card-preco {
+  font-size: 22px;
+}
+
+.card-parcela {
+  color: var(--cinza-texto);
+  font-size: 13px;
+}
+
+/* margin-top: auto empurra o botão para o fim do card,
+   assim todos os botões ficam alinhados mesmo com textos de tamanhos diferentes */
+.botao-comprar {
+  margin-top: auto;
+  padding: 10px;
+  background: var(--azul);
+  color: white;
+  font-weight: bold;
+}
+
+.botao-comprar:hover {
+  background: var(--azul-escuro);
+}
+
+/* ===== Menu suspenso (Dropdown) ===== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-lista {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+  min-width: 190px;
+  margin: 5px 0 0;
+  padding: 5px;
+  list-style: none;
+  background: white;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dropdown-lista button {
+  width: 100%;
+  border: none;
+  color: var(--texto);
+  text-align: left;
+}
+
+/* ===== Paginação ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pagination .ativa {
+  background: var(--azul);
+  color: white;
+}
+
+/* ===== Duas colunas (Abas + Upload) ===== */
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.descricao {
+  color: var(--cinza-texto);
+}
+
+/* ===== Abas (Tabs) ===== */
+.tabs-lista {
+  display: flex;
+  border-bottom: 2px solid var(--cinza-borda);
+}
+
+.tabs-lista button {
+  border: none;
+  border-radius: 0;
+  color: var(--cinza-texto);
+}
+
+.tabs-lista .ativa {
+  border-bottom: 3px solid var(--azul);
+  color: var(--azul);
+  font-weight: bold;
+}
+
+/* ===== Barra de progresso ===== */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-barra {
+  flex: 1;
+  height: 20px;
+  background: var(--cinza-borda);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-preenchimento {
+  height: 100%;
+  background: var(--verde);
+  transition: width 0.3s;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* ===== Acordeão ===== */
+.accordion-item {
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.accordion-titulo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  border: none;
+  color: var(--texto);
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* fechado: altura 0. Aberto: altura máxima de 200px. O transition anima a mudança */
+.accordion-conteudo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+  padding: 0 14px;
+  color: var(--cinza-texto);
+}
+
+.accordion-conteudo.aberto {
+  max-height: 200px;
+}
+
+/* ===== Toast ===== */
+.toast {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.toast.sucesso {
+  background: var(--verde);
+}
+
+.toast.erro {
+  background: var(--vermelho);
+}
+
+.toast.info {
+  background: var(--azul);
+}
+
+.toast button {
+  padding: 0 4px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* ===== Rodapé ===== */
+footer {
+  padding: 20px;
+  background: var(--texto);
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ===== Responsividade ===== */
+
+/* Tablet: 2 produtos por linha e Abas/Upload um embaixo do outro */
+@media (max-width: 768px) {
+  .produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Celular: 1 produto por linha, cabeçalho em coluna e toast na largura da tela */
+@media (max-width: 480px) {
+  .produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  .toast {
+    top: auto;
+    bottom: 20px;
+    left: 10px;
+    right: 10px;
+  }
+}
